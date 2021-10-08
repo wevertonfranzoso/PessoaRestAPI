@@ -41,8 +41,8 @@ public class PessoaController {
 	public Pessoa replacaPessoa(@RequestBody Pessoa pessoa, @PathVariable Long id) {
 		return repository.findById(id).map(p -> {
 			p.setNome(pessoa.getNome());
-			p.setIdade(pessoa.getIdade());
-			p.setEmail(pessoa.getEmail());
+			p.setCpf(pessoa.getCpf());
+			p.setCafeManha(pessoa.getCafeManha());
 			return repository.save(p);
 		}).orElseGet(() -> {
 			pessoa.setId(id);
